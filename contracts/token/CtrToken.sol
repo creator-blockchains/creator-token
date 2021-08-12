@@ -9,7 +9,7 @@ contract CtrToken is Ownable, ERC20Burnable {
     uint256 public constant MAX_TOTAL_SUPPLY = 150 * 10**(6 + 18);
     mapping(address => bool) adminList;
 
-    constructor(address wallet) Ownable() ERC20("Creator Platform","CTR") {
+    constructor(address wallet) Ownable() ERC20("Creator Chain","CTR") {
         _mint(wallet, MAX_TOTAL_SUPPLY);
         adminList[wallet] = true;
         transferOwnership(wallet);
