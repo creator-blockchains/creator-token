@@ -13,11 +13,12 @@ async function main() {
     deployer = accounts[0];
     console.log(`Deployer address: ${deployer}`);
 
-    gasPrice = new BN(2).mul(new BN(10).pow(new BN(9)));
+    let gasPrice = new BN(2).mul(new BN(10).pow(new BN(9)));
     console.log(`Sending transactions with gas price: ${gasPrice.toString(10)} (${gasPrice.div(new BN(10).pow(new BN(9))).toString(10)} gweis)`);
 
-    if (tokenAddress == undefined) {
-        token = await CtrToken.new(deployer);
+    let totalSupply = new BN(150).mul(new BN(10).pow(new BN(24)));
+    if (tokenAddress === undefined) {
+        token = await CtrToken.new(deployer, totalSupply);
         tokenAddress = token.address;
         console.log(`Deployed CTR token address: ${tokenAddress}`);
     } else {

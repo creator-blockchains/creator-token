@@ -17,3 +17,5 @@ yarn.lock
 /.idea
 /test/ERC20.behavior.js
 /olds
+/.env-test
+/.env-prod
